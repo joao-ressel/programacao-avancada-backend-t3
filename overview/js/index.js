@@ -3,7 +3,8 @@
 
 
 // console
-console.log('Texto dentro de um log.')
+//objeto que traz um método que requer algum argumento para funcionar
+console.log('Texto dentro de um log.') 
 console.warn('Isso é um alerta.')
 console.error('Essa é uma mensagem de erro.')
 // console é um objeto e log(), warn() e error() são métodos ou funções
@@ -17,10 +18,13 @@ let x = 10
 if(true){
     // escopo local
     let x = 20
+    console.log(x)
+    // para chamar o x do escopo global, usar o "this"
     console.log(this.x)
 }
 // é incorreto utilizar var depois do EC6
-
+//let posso atribuir valores diferentes, sempre que for trabalhar em escopo
+// const não muda
 
 
 // tipos de dados
@@ -29,9 +33,10 @@ if(true){
 const name = 'Victor'
 console.log(name)
 console.log(typeof name)
+//sempre escolher como vai declarar para manter um padrão
 
 // number
-let n = 10
+let n = 10 //vai guardar 10.000000....
 console.log(n)
 console.log(typeof n)
 n = 15.99
@@ -43,25 +48,27 @@ const isOpen = 0
 console.log(isOpen)
 console.log(typeof isOpen)
 
-// null
+// null é processado como tipo em javascript
+// no caso de criar uma constante e não atribuir nenhum valor no momento
 const a = null
 console.log(a)
 console.log(typeof a)
 
-// undefined 
+// undefined
+// deve-se evitar ter dados nessa configuração
 let nada
 console.log(nada)
 console.log(typeof nada)
-// deve-se evitar ter dados nessa configuração
 
-// array
+// array são objetos no js
 const linguagens = ['C++', 50, 'Python', 'JS']
 console.log(linguagens[1])
-console.log(typeof linguagens[1])
+console.log(typeof linguagens[1]) //a resposta sera o 50, um number estatico
 
 // object literals
 // são usados quando a necessidade é de representar alguma entidade, como usuário, pessoa, produto
 // possuem notação específica, similar à do JSON
+//os valores do conteudo de dentro do obj pode mudar, mesmo ele sendo constante
 const user = { 
     username:['vrc','outro nome'], 
     password:'123', 
@@ -71,16 +78,19 @@ const user = {
 console.log(user)
 console.log(typeof user)
 
-
+//---------aula parou aqui 19/06
 
 // métodos de string
 
+//text é um objeto pois tem atributo
 const text = 'qualquer um'
 // length para retornar o tamanho de uma string; obs.: length é um atributo, e não um método
+// lenght não é método, é um argumento
 console.log(text.length)
 // split() para quebrar texto em um determinado conjunto de caracteres
+//split é um método
 const textToArray = text.split('quer')
-console.log(textToArray[1])
+console.log(textToArray[1])//array também é objeto
 // toUpperCase() para transformar todos os caracteres em maiúsculo
 console.log(text.toUpperCase())
 // indexOf() para procurar algo dentro de uma string
@@ -112,7 +122,22 @@ console.log(chars)
 
 // Desafio: desenvolva uma calculadora para as 4 operações básicas usando const com os dados vindo de um formulário.
 
+// function calcular(){
+//     n1 = parseFloat(document.querySelector(".n1").value);
+//     n2 = parseFloat(document.querySelector(".n2").value);
+//     somar = n1 + n2
+//     subtrair = n1 - n2
+//     dividir = n1 / n2
+//     multiplicar = n1 * n2
+    
+// }
 
+function  calcular(){
+    const formData = new FormData(document.querySelector('form'))
+    const n1 = parseInt(formData.get('n1'))
+    const n2 = parseInt(formData.get('n2'))
+    console.log(n1 + n2)
+}
 
 
 // object literal
@@ -138,7 +163,7 @@ console.log(product['main color'])
 // os nomes precisam ser idênticos aos das propriedades do objeto
 let { productName, price } = product
 console.log(price)
-price = 30.49
+prie = 30.49
 console.log(price)
 console.log(product.price)
 
@@ -147,7 +172,7 @@ const vector = [3,7,2,45,99]
 // desestruturando um vetor
 let [ v1, v2, ...otherVector] = vector
 console.log(otherVector)
-
+console.log(typeof(v1, v2))
 
 
 // JSON - JavaScript Object Notation
@@ -172,9 +197,30 @@ console.log(dogObject)
 // const jsonErradoObject = JSON.parse(jsonErrado)
 
 // Desafio 1: Armazene 5 dados numéricos em um vetor. Em seguida, copie para um objeto com as propriedades n1, n2, n3, n4 e n5. Utilize destructuring para copiar os valores para 5 variáveis. Construa um objeto JSON com os valores das variáveis.
+const vetor = [10, 20, 30, 40, 50]
+let [ num1, num2, num3, num4, num5] = vetor
+const objeto = {
+    n1: num1,
+    n2: num2,
+    n3: num3,
+    n4: num4,
+    n5: num5
+}
+console.log(objeto)
+// transformando o objeto em JSON
+const objetoJ = JSON.stringify(objeto)
+console.log(objetoJ)
 
 // Desafio 2: Desenvolva uma calculadora que armazene em um objeto JSON o resultado das 4 operações básicas. Em outras palavras: crie um objeto calculadora, inicialize cada uma das operações da calculadora (que serão propriedades do objeto) com o resultado do processamento matemático vindo de duas variáveis e converta para um objeto JSON.
-
+const numero1 = 100
+const numero2 = 10
+const calculadora = JSON.stringify({
+    som: numero1 + numero2,
+    sub: numero1 - numero2,
+    mult: numero1 * numero2,
+    div: numero1 / numero2
+})
+console.log(calculadora)
 
 
 // estruturas
