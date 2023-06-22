@@ -177,7 +177,7 @@ console.log(typeof(v1, v2))
 
 // JSON - JavaScript Object Notation
 // é uma notação, ou seja, uma forma de escrever com regras específicas, como o XML, por exemplo
-// todo JSON é composto por texto, ou seja, interpretado como string, mas possuindo regras de sintaxe específicas
+// JSON é composto por texto, ou seja, interpretado como string, mas possuindo regras de sintaxe específicas
 
 // criando o objeto cachorro
 const dog = {
@@ -197,30 +197,27 @@ console.log(dogObject)
 // const jsonErradoObject = JSON.parse(jsonErrado)
 
 // Desafio 1: Armazene 5 dados numéricos em um vetor. Em seguida, copie para um objeto com as propriedades n1, n2, n3, n4 e n5. Utilize destructuring para copiar os valores para 5 variáveis. Construa um objeto JSON com os valores das variáveis.
-const vetor = [10, 20, 30, 40, 50]
-let [ num1, num2, num3, num4, num5] = vetor
-const objeto = {
-    n1: num1,
-    n2: num2,
-    n3: num3,
-    n4: num4,
-    n5: num5
+const vetor = [5,7,3,9,10]
+const objetoVetor = {
+    n1:vetor[0],
+    n2:vetor[1],
+    n3:vetor[2],
+    n4:vetor[3],
+    n5:vetor[4]
 }
-console.log(objeto)
-// transformando o objeto em JSON
-const objetoJ = JSON.stringify(objeto)
-console.log(objetoJ)
+const { n1, n2, n3, n4, n5 } = objetoVetor 
+console.log(JSON.stringify({n1,n2,n3,n4,n5}))
 
 // Desafio 2: Desenvolva uma calculadora que armazene em um objeto JSON o resultado das 4 operações básicas. Em outras palavras: crie um objeto calculadora, inicialize cada uma das operações da calculadora (que serão propriedades do objeto) com o resultado do processamento matemático vindo de duas variáveis e converta para um objeto JSON.
-const numero1 = 100
-const numero2 = 10
-const calculadora = JSON.stringify({
-    som: numero1 + numero2,
-    sub: numero1 - numero2,
-    mult: numero1 * numero2,
-    div: numero1 / numero2
-})
-console.log(calculadora)
+const variavel1 = 10, variavel2 = 15
+const objetoCalculadora = {
+    sum: variavel1+variavel2,
+    sub: variavel1-variavel2,
+    mult: variavel1*variavel2,
+    div: variavel1/variavel2
+}
+console.log(JSON.stringify(objetoCalculadora))
+
 
 
 // estruturas
