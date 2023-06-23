@@ -1,0 +1,23 @@
+NODE:
+É um ambiente de execução de JS
+Não é framework nem linguagem de programação
+backend, front, microserviços scripts e automações e APIs
+
+- rapido de executar
+- aplicações de ponta
+- ecosistema gigante
+
+na Netflix tinham que ter processos diferentes para debugar
+tempo para inicir os serviços caiu cerca de 1 minuto
+
+na Paypal de 5 devs para prototipação caiu para 2 e o tempo de resposta d requisição, ficou 35% menor
+
+funciona pelos motores de JS que estão nos navegadores, então é processado de maneira diferentes
+o ambiente pra rodar js é o navegador
+o ambiente para o node é a maquina
+
+estrategia assincrona - como java script funciona - não espera um processo para iniciar outro
+Event loop:
+enquanto o node esta ligado, o event loop ta rodando.
+requisição -> single thread ->register callback -> operação -> operação completa ->single trhead -> trigler callback -> resposta request
+exemplo do garçon que pega os pedidos e passa para a cozinha mas não espera o prato ficar pronto para pegar outro pedido em outra mesa

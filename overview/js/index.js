@@ -257,7 +257,8 @@ vez é ${outraLista[contador]}.`) //template literais, ou template strings: cont
 // Desafio relâmpago: escreva o que aparece no log abaixo como template literals.
 const var1 = 5
 const var2 = 10
-const sumLiteral = 'Quinze é ${(var1+var2)},\n e não ${(2*var1+var2)}.'
+const sumLiteral = `Quinze é \${(var1+var2)},
+e não ${(2*var1+var2)}.`
 console.log(sumLiteral)
 
 
@@ -265,15 +266,18 @@ console.log(sumLiteral)
 // métodos de arrays
 // os métodos de arrays esperam funções anônimas como argumentos para responder aos parâmetros
 
-const names = ['Victor','Alexandre','Mariana','Paulo']
+const names = ['Victor','Paulo','Mariana','Paulo']
 
 // forEach percorre um vetor]
 // os métodos para vetores precisam de funções anônimas para auxiliarem na resolução das suas funcionalidades
+//funciona como programção sincrona
+//um lugar para tratar os dados
 names.forEach(function(name){
     console.log(name)
 })
 
 // map percorre o vetor e permite fazer alterações nos conteúdos mapeados, retornando a alteração como resultado
+
 const modifiedNames = names.map(function(name){
     if(name == 'Paulo')
         return ('Paulo Sampaio')
@@ -285,7 +289,7 @@ modifiedNames.forEach(function(name){
 })
 
 // filter permite realizar uma filtragem em um vetor, retornando o resultado
-const numArray = [90,-4,6,22,0,36,1,4].filter(function(num){
+const numArray = [90,-4,6,22,6,36,1,4].filter(function(num){
     return num < 10
 })
 numArray.forEach(function(num){
@@ -294,8 +298,8 @@ numArray.forEach(function(num){
 console.log(numArray)
 
 // reduce permite aplicar operações matemáticas para reduzir o vetor a um resultado
-const sumArray = numArray.reduce(function(num1, num2){
-    return num1+num2
+const sumArray = numArray.reduce(function(num1, num2, num3){
+    return num1+num2-num3
 })
 console.log(sumArray)
 
@@ -318,16 +322,18 @@ console.log(myArrowFunction(5,2))
 
 //Desafio: Transforme a função a seguir em uma arrow function.
 
-/*
-function out(){
-    let x = 7
+
+function out1(){
+    let x = 2
     function sumXand5(){
         return x+5
     }
     return sumXand5()
 }
-*/
 
+console.log(out1())
+const myOut = (x) => x+5
+console.log(myOut(2))
 
 
 // reduzindo o formato de escrita; quando tempos apenas uma propriedade de um objeto sendo utilizada na função anônima, podemos escrever o parâmetro como object literal especificando a propriedade do objeto que será trabalhada e utilizá-la sem que seja necessário escrever o nome do objeto
