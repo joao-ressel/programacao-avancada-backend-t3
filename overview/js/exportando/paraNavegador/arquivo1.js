@@ -6,7 +6,7 @@
 (function () {
     let variavel = 10;
   
-    function somarCinco() {
+    function somar() {
       return variavel + 5;
     }
   
