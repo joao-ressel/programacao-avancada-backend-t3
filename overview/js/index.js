@@ -161,7 +161,7 @@ console.log(product['main color'])
 
 // desestruturando o objeto product para duas variáveis
 // os nomes precisam ser idênticos aos das propriedades do objeto
-let { productName, price } = product
+let { size, price } = product
 console.log(price)
 prie = 30.49
 console.log(price)
@@ -170,7 +170,7 @@ console.log(product.price)
 
 const vector = [3,7,2,45,99]
 // desestruturando um vetor
-let [ v1, v2, ...otherVector] = vector
+let [ v1, v2, ...otherVector ] = vector
 console.log(otherVector)
 console.log(typeof(v1, v2))
 
@@ -193,7 +193,7 @@ const dogObject = JSON.parse(dogJson)
 console.log(dogObject)
 
 // caso haja algum erro na sintaxe, não pode ser considerado um JSON válido
-// const jsonErrado = '{"primeiro":"dado1""segundo":222,"terceiro":"dado3}'
+// const jsonErrado = '{'primeiro':'dado1','segundo':222,'terceiro':'dado3'}'
 // const jsonErradoObject = JSON.parse(jsonErrado)
 
 // Desafio 1: Armazene 5 dados numéricos em um vetor. Em seguida, copie para um objeto com as propriedades n1, n2, n3, n4 e n5. Utilize destructuring para copiar os valores para 5 variáveis. Construa um objeto JSON com os valores das variáveis.
@@ -208,7 +208,27 @@ const objetoVetor = {
 const { n1, n2, n3, n4, n5 } = objetoVetor 
 console.log(JSON.stringify({n1,n2,n3,n4,n5}))
 
+const vetor = [5,7,3,9,10]
+const objetoVetor = {
+    n1:vetor[0],
+    n2:vetor[1],
+    n3:vetor[2],
+    n4:vetor[3],
+    n5:vetor[4]
+}
+const { n1, n2, n3, n4, n5 } = objetoVetor 
+console.log(JSON.stringify({n1,n2,n3,n4,n5}))
+
 // Desafio 2: Desenvolva uma calculadora que armazene em um objeto JSON o resultado das 4 operações básicas. Em outras palavras: crie um objeto calculadora, inicialize cada uma das operações da calculadora (que serão propriedades do objeto) com o resultado do processamento matemático vindo de duas variáveis e converta para um objeto JSON.
+const variavel1 = 10, variavel2 = 15
+const objetoCalculadora = {
+    sum: variavel1+variavel2,
+    sub: variavel1-variavel2,
+    mult: variavel1*variavel2,
+    div: variavel1/variavel2
+}
+console.log(JSON.stringify(objetoCalculadora))
+
 const variavel1 = 10, variavel2 = 15
 const objetoCalculadora = {
     sum: variavel1+variavel2,
@@ -268,7 +288,7 @@ console.log(sumLiteral)
 
 const names = ['Victor','Paulo','Mariana','Paulo']
 
-// forEach percorre um vetor]
+// forEach percorre um vetor
 // os métodos para vetores precisam de funções anônimas para auxiliarem na resolução das suas funcionalidades
 //funciona como programção sincrona
 //um lugar para tratar os dados
