@@ -1,0 +1,5 @@
+{"memoriaTotal":"16128 MB","memoriaLivre":" 10408 MB","memoriaUsada":"36%"}
+{"memoriaTotal":"16128 MB","memoriaLivre":" 10393 MB","memoriaUsada":"36%"}
+{"memoriaTotal":"16128 MB","memoriaLivre":" 10393 MB","memoriaUsada":"36%"}
+{"memoriaTotal":"16128 MB","memoriaLivre":" 10384 MB","memoriaUsada":"36%"}
+{"memoriaTotal":"16128 MB","memoriaLivre":" 10395 MB","memoriaUsada":"36%"}
