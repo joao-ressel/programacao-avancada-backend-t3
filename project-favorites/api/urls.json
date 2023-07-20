@@ -1,10 +1,6 @@
 {
   "urls": [
     {
-      "name": "Web Academy",
-      "url": "http://webacademy.ufac.br"
-    },
-    {
       "name": "Ufac",
       "url": "http://ufac.br"
     },
@@ -17,8 +13,17 @@
       "url": "https://google.com"
     },
     {
+<<<<<<< HEAD
       "name": "Google",
       "url": "http://google.com"
+=======
+      "name": "Testando",
+      "url": "http://teste"
+    },
+    {
+      "name": "testando...",
+      "url": "http"
+>>>>>>> a3a0d75df2a2048e9d98817bf26a1d046d32768e
     }
   ]
 }

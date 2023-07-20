@@ -22,17 +22,23 @@ function addElement({ name, url }) {
     a.innerHTML = name // valor da propriedade name é atribuido ao conteúdo do elemento de link 
     a.target = "_blank" //para abrir o link em uma nova aba
 
+<<<<<<< HEAD
     //criando elemento span de exclusão
     trash.innerHTML = "x" 
 
     // atribuindo um evento ao botão passando oproprio "X" como argumento
     trash.onclick = () => removeElement(trash) 
+=======
+    trash.innerHTML = "x"
+    trash.onclick = () => removeElement(trash, { name, url })
+>>>>>>> a3a0d75df2a2048e9d98817bf26a1d046d32768e
     
     // elemento sendo anexados a estrutura da lista
     ul.append(li) 
     li.append(a)
     li.append(trash)
 
+<<<<<<< HEAD
     // Enviar dados para a API
     saveDataToAPI({ name, url });
 }
@@ -69,6 +75,31 @@ function deleteDataFromAPI(url) {
         .then((response) => response.text())
         .then((message) => console.log(message))
         .catch((error) => console.error(error));
+=======
+}
+
+async function addElementAndSendToApi({ name, url }){
+    
+    addElement({ name, url })
+
+    const response = await fetch(`http://localhost:3000/?name=${name}&url=${url}`)
+
+    if (!response.ok)
+        console.error(`Erro ao enviar os dados para a API: ${response.statusText}`)
+
+}
+
+async function removeElement(element, { name, url }) {
+    if (confirm('Tem certeza que deseja deletar?')){
+        element.parentNode.remove()
+
+        const response = await fetch(`http://localhost:3000/?name=${name}&url=${url}&del=1`)
+
+        if (!response.ok)
+            console.error(`Erro ao enviar os dados para a API: ${response.statusText}`)
+    }
+
+>>>>>>> a3a0d75df2a2048e9d98817bf26a1d046d32768e
 }
 
 form.addEventListener('submit', (event) => {
@@ -92,9 +123,14 @@ form.addEventListener('submit', (event) => {
         //verificado se começa com http
     if (!/^http/.test(url))
         return alert('Digite a url da maneira correta.')
+<<<<<<< HEAD
     
     //chamando a função com os objetos como argumento
     addElement({ name, url })
+=======
+
+    addElementAndSendToApi({ name, url })
+>>>>>>> a3a0d75df2a2048e9d98817bf26a1d046d32768e
 
     //limpando campo de entrada input
     input.value = ''
